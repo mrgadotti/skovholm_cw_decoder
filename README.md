@@ -1,2 +1,3 @@
-# skovholm_cw_decoder
+# Arduino CW decoder
+
 http://www.skovholm.com/cwdecoder
