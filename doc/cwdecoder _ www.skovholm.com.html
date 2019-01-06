@@ -1,0 +1,1186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0033)http://www.skovholm.com/cwdecoder -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" lang="da" xml:lang="da" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+      
+<meta name="keywords" content="Fiskeri, adventure, gennemløbere, blink, støbe, siliconegummi, maraton, ekstrem, havørred, laks, Amatørradio">
+<meta name="description" content="EASY BUILD CW DECODER BASED ON DSP GOERTZEL CODE  If you want to build a cw decoder without using other active components than an atmel 328 - Arduino UNO , then this is sure something for you.">
+<link rel="shortcut icon" href="http://www.skovholm.com/sites/default/files/hjhicon.ico" type="image/x-icon">
+      <title>cwdecoder | www.skovholm.com</title>
+      <link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/book.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/content-module.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/date.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/datepicker.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/jquery.timeentry.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/filefield.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/lightbox.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/media_browser.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/node.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/defaults.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/system.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/upload_element.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/user.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/video_filter.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/views_slideshow.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/views_slideshow(1).css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/views_charts.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/forum.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/farbtastic.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/calendar.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/fieldgroup.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/views.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/jquery.jcarousel.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/jcarousel.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/skin.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/layout.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/style.css">
+<link type="text/css" rel="stylesheet" media="all" href="./cwdecoder _ www.skovholm.com_files/custom.css">
+      
+<!--[if lt IE 7.0]><link rel="stylesheet" href="/sites/all/themes/sky/css/ie-6.css" type="text/css" media="all" charset="utf-8" /><![endif]-->
+<!--[if IE 7.0]><link rel="stylesheet" href="/sites/all/themes/sky/css/ie-7.css" type="text/css" media="all" charset="utf-8" /><![endif]-->
+      <script type="text/javascript" src="./cwdecoder _ www.skovholm.com_files/jquery.js.download"></script>
+<script type="text/javascript" src="./cwdecoder _ www.skovholm.com_files/drupal.js.download"></script>
+<script type="text/javascript" src="./cwdecoder _ www.skovholm.com_files/da_c8ccf3f260bb34ba8d43c2842d354902.js.download"></script>
+<script type="text/javascript" src="./cwdecoder _ www.skovholm.com_files/auto_image_handling.js.download"></script>
+<script type="text/javascript" src="./cwdecoder _ www.skovholm.com_files/lightbox.js.download"></script>
+<script type="text/javascript" src="./cwdecoder _ www.skovholm.com_files/media_browser.js.download"></script>
+<script type="text/javascript" src="./cwdecoder _ www.skovholm.com_files/jquery.cycle.all.min.js.download"></script>
+<script type="text/javascript" src="./cwdecoder _ www.skovholm.com_files/views_slideshow.js.download"></script>
+<script type="text/javascript" src="./cwdecoder _ www.skovholm.com_files/views_slideshow.js(1).download"></script>
+<script type="text/javascript" src="./cwdecoder _ www.skovholm.com_files/views_charts.js.download"></script>
+<script type="text/javascript" src="./cwdecoder _ www.skovholm.com_files/jquery.jcarousel.js.download"></script>
+<script type="text/javascript" src="./cwdecoder _ www.skovholm.com_files/jcarousel.js.download"></script>
+<script type="text/javascript" src="./cwdecoder _ www.skovholm.com_files/hoverIntent.js.download"></script>
+<script type="text/javascript" src="./cwdecoder _ www.skovholm.com_files/superfish.js.download"></script>
+<script type="text/javascript" src="./cwdecoder _ www.skovholm.com_files/sky.js.download"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "lightbox2": { "rtl": "0", "file_path": "/(\\w\\w/)sites/default/files", "default_image": "/modules/lightbox2/images/brokenimage.jpg", "border_size": 10, "font_color": "000", "box_color": "fff", "top_position": "", "overlay_opacity": "0.9", "overlay_color": "000", "disable_close_click": 1, "resize_sequence": 0, "resize_speed": 400, "fade_in_speed": 400, "slide_down_speed": 600, "use_alt_layout": 0, "disable_resize": 1, "disable_zoom": 0, "force_show_nav": 1, "show_caption": true, "loop_items": 0, "node_link_text": "View Image Details", "node_link_target": 0, "image_count": "Image !current of !total", "video_count": "Video !current of !total", "page_count": "Page !current of !total", "lite_press_x_close": "press \x3ca href=\"#\" onclick=\"hideLightbox(); return FALSE;\"\x3e\x3ckbd\x3ex\x3c/kbd\x3e\x3c/a\x3e to close", "download_link_text": "Download Original", "enable_login": false, "enable_contact": false, "keys_close": "c x 27", "keys_previous": "p 37", "keys_next": "n 39", "keys_zoom": "z", "keys_play_pause": "32", "display_image_size": "preview", "image_node_sizes": "(\\.thumbnail)", "trigger_lightbox_classes": "img.inline,img.flickr-photo-img,img.flickr-photoset-img,img.ImageFrame_image,img.ImageFrame_none,img.image-img_assist_custom,img.thumbnail, img.image-thumbnail", "trigger_lightbox_group_classes": "", "trigger_slideshow_classes": "", "trigger_lightframe_classes": "", "trigger_lightframe_group_classes": "", "custom_class_handler": "lightbox_ungrouped", "custom_trigger_classes": "", "disable_for_gallery_lists": 1, "disable_for_acidfree_gallery_lists": true, "enable_acidfree_videos": true, "slideshow_interval": 5000, "slideshow_automatic_start": 1, "slideshow_automatic_exit": 1, "show_play_pause": 1, "pause_on_next_click": 0, "pause_on_previous_click": 1, "loop_slides": 1, "iframe_width": 600, "iframe_height": 400, "iframe_border": 1, "enable_video": 0 }, "jcarousel": { "#viewscarousel-story-rotator-2-block-1": { "vertical": 1, "scroll": 3, "animation": "fast", "easing": "swing", "auto": 2, "wrap": "both", "skin": "tango" } } });
+//--><!]]>
+</script>
+    </head>
+  <body class="page-node page-page page-node-view anonymous-user right lightbox-processed" id="page-node-1500">
+    <div id="wrapper">
+    <div id="header" class="layout-region name-slogan">
+    
+                        <span id="site-name"> <a href="http://www.skovholm.com/" title="www.skovholm.com">www.skovholm.com</a></span>
+                <br><br><br><br>
+                <span id="site-slogan">It all start with passion</span>
+            
+    </div>
+          <div id="navigation"><del class="wrap-center"><ul class="sf-js-enabled"><li class="expanded first"><a href="http://www.skovholm.com/node/3" title="link til alle fiske sites">Fiskeri</a><ul class="sf-js-enabled" style="visibility: hidden;"><li class="expanded first"><a href="http://www.skovholm.com/node/1204" title="">Kystfiskeri</a><ul class="sf-js-enabled" style="visibility: hidden;"><li class="leaf first"><a href="http://www.skovholm.com/node/1208" title="">Farven på Blinket</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/node/1213" title="">Hvad betyder tidevandet ?</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/node/1206" title="">Spin Stop og Hastighed </a></li>
+<li class="leaf"><a href="http://www.skovholm.com/node/1212" title="">Hvad betyder lufttrykket ? </a></li>
+<li class="leaf"><a href="http://www.skovholm.com/node/1211" title="">Hvilken kyst er bedst ? </a></li>
+<li class="leaf"><a href="http://www.skovholm.com/node/1210" title="">Hvilket vejr er bedst ?</a></li>
+<li class="leaf last"><a href="http://www.skovholm.com/node/1215" title="">Havørred eller laks</a></li>
+</ul></li>
+<li class="leaf"><a href="http://www.skovholm.com/fiskeri" title="">Artikler om fiskeri</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/book" title="Her kan du læse alt om hjemmelavet grej">Sådan laver du godt hjemmelavet grej</a></li>
+<li class="expanded"><a href="http://www.skovholm.com/node/800" title="">Kyst flue</a><ul class="sf-js-enabled" style="visibility: hidden;"><li class="collapsed first"><a href="http://www.skovholm.com/node/811" title="">Kyst Flue eksempler</a></li>
+<li class="leaf last"><a href="http://www.skovholm.com/node/799" title="Et ønske blev en udfordring">Byg et fluebord</a></li>
+</ul></li>
+<li class="expanded"><a href="http://www.skovholm.com/node/818" title="">Knuds gode råd</a><ul class="sf-js-enabled" style="visibility: hidden;"><li class="leaf first"><a href="http://www.skovholm.com/node/812" title="">Knuds woblere</a></li>
+<li class="leaf last"><a href="http://www.skovholm.com/node/832" title="">Knuds svenske woblere</a></li>
+</ul></li>
+<li class="leaf"><a href="http://www.skovholm.com/node/3" title="">Fisk vi har fanget</a></li>
+<li class="leaf last"><a href="http://www.skovholm.com/weblinks" title="">Links</a></li>
+</ul></li>
+<li class="expanded"><a href="http://www.skovholm.com/node/4" title="Link til alle sports sites">Sport &amp; Adventure</a><ul class="sf-js-enabled" style="visibility: hidden; display: none;"><li class="leaf first"><a href="http://www.skovholm.com/sport" title="">Artikler om sport</a></li>
+<li class="collapsed"><a href="http://www.skovholm.com/node/1362" title="advanced elements kajak">Advanced Elements Kajak</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/node/1363" title="Endeavour 17 - Strip bygget havkajak">Havkajak - Stripbygget Endeavour 17</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/node/1245" title="Motionsløb">Motionsløb</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/node/1254" title="Træningsdagbog">Træningsdagbog</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/node/1244" title="Vægttab">Vægttab</a></li>
+<li class="leaf last"><a href="http://www.skovholm.com/klatrelog" title="Her kan du se min klatrelog">Klatrelog</a></li>
+</ul></li>
+<li class="expanded active-trail"><a href="http://www.skovholm.com/content/ham-radio-radioamat%C3%B8r" title="Ham Radio - Radioamatør">Ham Radio - Radioamatør</a><ul class="sf-js-enabled" style="visibility: hidden;"><li class="leaf first"><a href="http://www.skovholm.com/node/1243" title="Radioamatør">Morse - CW</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/content/accu-keyer-arduino" title="ACCU KEYER with ARDUINO">ACCU KEYER WITH ARDUINO</a></li>
+<li class="leaf active-trail"><a href="http://www.skovholm.com/cwdecoder" title="Here you can find a simpel arduino based cwdecoder with only a few passive components and then Arduino UNO" class="active">CW DECODER THE EASY WAY</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/content/cw-keyer-k3ng-and-oz1jhm" title="CW KEYER K3NG and OZ1JHM">CW KEYER K3NG and OZ1JHM</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/content/capacitor-paddles" title="Capacitor on the paddles ?">Capacitor on the paddles ?</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/content/heigth-paddles" title="Heigth on paddles">Height on paddles</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/content/logbook" title="Logbook">Logbook</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/ozmorse" title="OZMORSE - Et mødested for CW freaks ...">OZMORSE</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/content/schurr-profi-2" title="Schurr Profi 2">SCHURR PROFI 2</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/content/shack-04-2013" title="Shack 04-2013">Shack 04-2013</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/content/shack-04-2014" title="Shack 04-2014">Shack 04-2014</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/content/squeeze-keyer" title="">The Squeeze Keyer</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/content/touch-paddle" title="A touch paddle">Touch Paddle</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/content/wbl-v22-paddle" title="WBL V22 paddle">WBL V22 Paddle</a></li>
+<li class="leaf last"><a href="http://www.skovholm.com/oz8sma-keyer" title="OZ8SMA KEYER">oz8sma keyer</a></li>
+</ul></li>
+<li class="collapsed"><a href="http://www.skovholm.com/content/kilimanjaro" title="Kilimanjaro">Kilimanjaro</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/contact" title="Her kan du skrive en besked til webmaster">Kontakt</a></li>
+<li class="expanded"><a href="http://www.skovholm.com/node/1240" title="åbent Landskab">diverse</a><ul class="sf-js-enabled" style="visibility: hidden;"><li class="leaf first"><a href="http://www.skovholm.com/node/1242" title="citater">Citater</a></li>
+<li class="leaf"><a href="http://www.skovholm.com/node/1241" title="Noget om kraft">Noget om kraft</a></li>
+<li class="leaf last"><a href="http://www.skovholm.com/node/1334" title="Garmin IMG kort">Garmin KORT</a></li>
+</ul></li>
+<li class="expanded"><a href="http://www.skovholm.com/?q=user" title="Login">Login</a><ul class="sf-js-enabled" style="visibility: hidden;"><li class="leaf first"><a href="http://www.skovholm.com/logout" title="Her kan du logge ud af din konto">Log Out</a></li>
+<li class="leaf last"><a href="http://www.skovholm.com/admin" title="Her er adgang til administrationsmodulet">Admin</a></li>
+</ul></li>
+<li class="leaf"><a href="http://www.skovholm.com/billeder" title="">Billeder</a></li>
+<li class="leaf last"><a href="http://www.skovholm.com/blog" title="Her en min blog om alt imellem himmel og jord ;o)">Bloggen</a></li>
+</ul></del></div>
+        <div id="container" class="layout-region">
+            <div id="main">
+        <div class="main-inner">
+                      <div class="breadcrumb clearfix"><div id="breadcrumbs" class="clearfix"><a href="http://www.skovholm.com/">Hjem</a></div></div>
+                                        
+ 
+                      <h1 class="title">cwdecoder</h1>
+                                        <div id="content" class="clearfix">
+            <div id="node-1500" class="node clearfix node-page node-full published not-promoted not-sticky without-photo ">
+    
+                                <div class="terms">
+          <span class="icon">&nbsp;</span>
+          <ul><li class="taxonomy_term_12 first last"><a href="http://www.skovholm.com/category/kategoritaghjh/amat%C3%B8rradio" rel="tag" title="">Amatørradio</a></li>
+</ul>        </div>
+          
+  <div class="content clearfix">
+     <h2>EASY BUILD&nbsp;CW DECODER BASED ON DSP GOERTZEL CODE</h2>
+<p><span>&nbsp;If you want to build a cw decoder without using other active components than an atmel 328 - Arduino UNO , then this is sure something for you.</span></p>
+<p>The magic in this code is the tone detection based on the goertzel formular, which means that you just put in the audio on an analog pin and then the processor make some calculations and if there is a tone you will get a magnitude value.</p>
+<p>Here is a video where you can see the decoder in function ..Hardware build by OZ2HNS for use in our clubstation OZ8SMA</p>
+<p><iframe width="560" height="315" src="./cwdecoder _ www.skovholm.com_files/zbQFlzbDb8w.html" frameborder="0" allowfullscreen=""></iframe></p>
+<p>You can read about the goertzel formular here :</p>
+<p>&nbsp;<a href="http://en.wikipedia.org/wiki/Goertzel_algorithm" title="link to wiki">en.wikipedia.org/wiki/Goertzel_algorithm </a></p>
+<p>&nbsp;<a href="https://courses.cs.washington.edu/courses/cse466/12au/calendar/Goertzel-EETimes.pdf">courses.cs.washington.edu/courses/cse466/12au/calendar/Goertzel-EETimes.pdf</a></p>
+<p><img rel="lightbox" src="./cwdecoder _ www.skovholm.com_files/decoder_bb_2.png" width="600" height="855" alt=""></p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;</p>
+<p>here you can see my test setup ...A Arduino UNO board and a LCD board and then a few components ..</p>
+<p><img rel="lightbox" src="./cwdecoder _ www.skovholm.com_files/WP_20140907_001.jpg" width="600" height="338" alt=""></p>
+<p>&nbsp;</p>
+<p>The scematic is VERY simple. Just 2 10k resistors betwen gnd and 5 volts and then a capacitor in serie with the audio signal.</p>
+<p><img rel="lightbox" src="./cwdecoder _ www.skovholm.com_files/decoder_schem.png" width="500" height="814" alt=""></p>
+<p>&nbsp;</p>
+<p>The code can take different kinds of displays 2*16 or 4*16 or 2*20 or 4*20 ..just connect and then the code will manage when you have done the setup..</p>
+<p>Tell the liquidcrystal library which pins you use for the display and underneath that which kind of display you have</p>
+<p><img rel="lightbox" src="./cwdecoder _ www.skovholm.com_files/kode1.gif" width="400" height="161" alt=""></p>
+<p>Then you have to set which pin you use for AudioIN and which pin you use for the Led ..</p>
+<p><img rel="lightbox" src="./cwdecoder _ www.skovholm.com_files/kode2.gif" width="400" height="165" alt=""></p>
+<p>&nbsp;</p>
+<p><strong>NOW YOU CAN USE THE DECODER WITHOUT ANY MORE MODIFICATIONS</strong></p>
+<p>&nbsp;</p>
+<p>But if you want another center&nbsp;frequency you and want to change how wide the filter shall be, you have to change the following lines also.</p>
+<p>Be aware of that you can only chose some excact frequencies and only a specified number of samples.</p>
+<p>For a start take the n=48 ( testdata[48] ) and then you can chose 558 hz or mabye 744 hz which are good for recieveing.</p>
+<p><img rel="lightbox" src="./cwdecoder _ www.skovholm.com_files/kode3.gif" width="500" height="251" alt=""></p>
+<p>The you are ready for going ....</p>
+<p>If you have trouble with the audio is to high og to weak yo can try to set the 2 values for magnitude .</p>
+<p>go 50 up or 50 down with both of them in same time ...here they are 100, if your transiver shall be turned up to get the decoder working then set the values down.</p>
+<p>If you get a lot of noise in when you have your volumen on the prefereed place then set the 2 values up with 50 ..</p>
+<p><img rel="lightbox" src="./cwdecoder _ www.skovholm.com_files/kode4.gif" width="500" height="274" alt=""></p>
+<p>&nbsp;</p>
+<p>Here you can download the code :&nbsp;<a href="http://www.skovholm.com/decoder11.ino">Download version 1.1</a>&nbsp; Right click on the mouse and chose save as...</p>
+<p>&nbsp;</p>
+<p>&nbsp;LInks to other builders :</p>
+<p><a href="http://k2jji.org/2014/09/18/arduino-base-cw-decoder/">k2jji.org/2014/09/18/arduino-base-cw-decoder/</a></p>
+<p><a href="https://sites.google.com/site/chipkituno32cwdecoder/">sites.google.com/site/chipkituno32cwdecoder/</a></p>
+<p>Here you can see Mr.Chiba very fine website&nbsp;<a href="http://jh1lhv.hatenablog.jp/entry/2015/01/17/001128">jh1lhv.hatenablog.jp/entry/2015/01/17/001128</a></p>
+<p>And here you can see how JA9MAT Hidehiko build it with chinese letters&nbsp; <a href="http://www.skovholm.com/decoder_kh.ino">Download</a>&nbsp;Mr. Hidehiko use some code from Mr. Chiba also.</p>
+<p>Here you can find an other danish ham which have been working on the code&nbsp;<a href="http://www.planker.dk/Projects/Arduino/Decoder/Decoder.htm">www.planker.dk/Projects/Arduino/Decoder/Decoder.htm</a></p>
+<p>Here a project from a oz1edr&nbsp;<a href="http://oz1edr.dk/Arduino%20Uno/CW%20dekoder/Arduino%20CW.htm">oz1edr.dk/Arduino%20Uno/CW%20dekoder/Arduino%20CW.htm</a></p>
+<p>And another link&nbsp;<a href="http://www.oz5bir.dk/service1/teknik/cw%20dekoder/cw_dekoder.html">www.oz5bir.dk/service1/teknik/cw%20dekoder/cw_dekoder.html</a></p>
+<p>and in a USA ham newspaper&nbsp;<a href="http://www.wb7qiw.org/pdfs/HARC%20October%202014.pdf">www.wb7qiw.org/pdfs/HARC%20October%202014.pdf</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+   </div>
+      <div class="links">
+      <ul><li class="statistics_counter first last"><span>304127 visninger</span></li>
+</ul>    </div>
+  </div>
+          </div>
+          <!-- END CONTENT -->
+                     
+        </div>
+        <!-- END MAIN INNER -->
+      </div>
+      <!-- END MAIN -->
+              <div id="sidebar-right" class="sidebar">
+          <div class="inner">
+          <div id="block-views-nye-story-block-1" class="block block-views block-odd region-odd clearfix ">
+    <div class="content">
+    <div class="view view-nye-story view-id-nye-story view-display-id-block-1 view-dom-id-1  ">
+        <div class="view-header">
+       <p>NYESTE ARTIKLER<br>
+SPORT &amp; ADVENTURE</p>
+     </div>
+            <div class="view-content">
+      <table class="views-view-grid col-1">
+  <tbody>
+                <tr class="row-1 row-first">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/very-simpel-cw-decoder-easy-build"><small>A VERY simpel CW decoder EASY BUILD</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-2">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/dear-ham-friends-around-world"><small>Dear Ham friends from around the world</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-3">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/s%C3%A5-tr%C3%A6nes-der-cw"><small>Så trænes der CW...</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-4">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/s%C3%A5-er-kajakken-f%C3%A6rdig"><small>Så er kajakken færdig ..</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-5">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/kilimanjaro-tur-retur"><small>Kilimanjaro tur - retur</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-6">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/m%C3%B8ns-klint-tr%C3%A6ning-til-kilimanjaro"><small>Møns Klint træning til Kilimanjaro</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-7">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/kilimanjaro-en-ny-udfordring"><small>Kilimanjaro - En ny udfordring</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-8">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/trans-germany-2011"><small>Trans Germany 2011</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-9">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/klatregrej-er-klar-til-oplevelser"><small>Klatregrej er klar til oplevelser</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-10">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/mtb-tr%C3%A6ning-til-trans-germany-0"><small>MTB træning til Trans Germany</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-11">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/hallands%C3%A5sen-p%C3%A5-mtb"><small>Hallandsåsen på MTB</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-12">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/ferrata-ved-riva-del-garda"><small>Via Ferrata ved Riva Del Garda</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-13">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/stripbygget-havkajak-endeavour-17"><small>Stripbygget havkajak - Endeavour 17</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-14">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/rapelling-og-mtb-p%C3%A5-en-flot-sommerdag"><small>Rapelling og MTB på en flot sommerdag</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-15">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/en-dejlig-aften-i-advanced-elements-kajak"><small>En dejlig aften i Advanced Elements Kajak</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-16">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/advancedframe-convertible-kajak"><small>ADVANCEDFRAME CONVERTIBLE KAJAK </small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-17">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/scala-adventure-race-2010-billeder"><small>Scala Adventure Race 2010 billeder</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-18">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/mtb-m%C3%B8ns-klint-med-styrt"><small>MTB Møns Klint med styrt</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-19">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/mtb-p%C3%A5-himmelbjerget"><small>MTB på himmelbjerget</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-20">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/mtb-tur-med-lov-cykel-motion"><small>MTB tur med Lov Cykel Motion</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-21">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/content/contour-hd-1080p-helmet-cam-i-gave"><small>Contour HD 1080P Helmet Cam i gave</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-22">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/node/1318"><small>2009 - Moderat træningsår -sammen med kronprinsen</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-23">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/node/1317"><small>Faldskærm efter speedbåd</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-24">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/node/1306"><small>TREK 9.8 ELITE fra julemanden</small></a></span>
+  </div>
+          </td>
+              </tr>
+                <tr class="row-25 row-last">
+                  <td class="col-1 col-first">
+              
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.skovholm.com/node/1253"><small>PowerBoat i skærgården</small></a></span>
+  </div>
+          </td>
+              </tr>
+      </tbody>
+</table>
+    </div>
+        <div class="item-list"><ul class="pager"><li class="pager-previous first">&nbsp;</li>
+<li class="pager-current">1 of 3</li>
+<li class="pager-next last"><a href="http://www.skovholm.com/cwdecoder?page=1" class="active">››</a></li>
+</ul></div>          </div>   </div>
+</div>
+<!-- /block.tpl.php --><div id="block-views-story-rotator-2-block-1" class="block block-views block-even region-even clearfix ">
+    <div class="content">
+    <div class="view view-story-rotator-2 view-id-story-rotator-2 view-display-id-block-1 view-dom-id-2  ">
+              <div class="view-content">
+      <div class=" jcarousel-skin-tango"><div class="jcarousel-container jcarousel-container-vertical" style="display: block;"><div class="jcarousel-prev jcarousel-prev-vertical" disabled="false" style="display: block;"></div><div class="jcarousel-next jcarousel-next-vertical" disabled="false" style="display: block;"></div><div class="jcarousel-clip jcarousel-clip-vertical"><ul id="viewscarousel-story-rotator-2-block-1" class="jcarousel-processed jcarousel-list jcarousel-list-vertical" style="height: 16192px; top: -6336px;"><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-1 jcarousel-item-1-vertical" jcarouselindex="1">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20071.JPG" rel="lightbox[field_images][Fuld koncentration ved post beskrivelsen&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 071.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 071.JPG" alt="Fuld koncentration ved post beskrivelsen" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-2 jcarousel-item-2-vertical" jcarouselindex="2">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20072.JPG" rel="lightbox[field_images][Så er vi klar&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 072.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 072.JPG" alt="Så er vi klar" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-3 jcarousel-item-3-vertical" jcarouselindex="3">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20073.JPG" rel="lightbox[field_images][Ned under den gamle jernbanebro&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 073.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 073.JPG" alt="Ned under den gamle jernbanebro" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-4 jcarousel-item-4-vertical" jcarouselindex="4">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20074.JPG" rel="lightbox[field_images][2 dunke og en hjernevrider opgave i silende regnvejr&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 074.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 074.JPG" alt="2 dunke og en hjernevrider opgave i silende regnvejr" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-5 jcarousel-item-5-vertical" jcarouselindex="5">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20078.JPG" rel="lightbox[field_images][Der blev læst og tænkt, og vupti så var den der ..&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 078.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 078.JPG" alt="Der blev læst og tænkt, og vupti så var den der .." title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-6 jcarousel-item-6-vertical" jcarouselindex="6">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20173.JPG" rel="lightbox[field_images][Det her kan give våde poter ;o)&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 173.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 173.JPG" alt="Det her kan give våde poter ;o)" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-7 jcarousel-item-7-vertical" jcarouselindex="7">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20174.JPG" rel="lightbox[field_images][Fed søndagshygge&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 174.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 174.JPG" alt="Fed søndagshygge" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-8 jcarousel-item-8-vertical" jcarouselindex="8">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20176.JPG" rel="lightbox[field_images][;o) FULD koncentration&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 176.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 176.JPG" alt=";o) FULD koncentration" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-9 jcarousel-item-9-vertical" jcarouselindex="9">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20177.JPG" rel="lightbox[field_images][Næste mand afsted&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 177.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 177.JPG" alt="Næste mand afsted" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-10 jcarousel-item-10-vertical" jcarouselindex="10">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20115.JPG" rel="lightbox[field_images][Afsted til næste post&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 115.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 115.JPG" alt="Afsted til næste post" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-11 jcarousel-item-11-vertical" jcarouselindex="11">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20116.JPG" rel="lightbox[field_images][Ind i den tætte våde rare skov&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 116.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 116.JPG" alt="Ind i den tætte våde rare skov" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-12 jcarousel-item-12-vertical" jcarouselindex="12">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20179.JPG" rel="lightbox[field_images][Navigatøren er fuldt koncentreret ..&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 179.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 179.JPG" alt="Navigatøren er fuldt koncentreret .." title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-13 jcarousel-item-13-vertical" jcarouselindex="13">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20253.JPG" rel="lightbox[field_images][Jern Henrik er blevet rigtig godt våd&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 253.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 253.JPG" alt="Jern Henrik er blevet rigtig godt våd" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-14 jcarousel-item-14-vertical" jcarouselindex="14">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20254.JPG" rel="lightbox[field_images][og vi manglede lige 35 km på mtb ..Nej hvor var vi våde&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 254.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 254.JPG" alt="og vi manglede lige 35 km på mtb ..Nej hvor var vi våde" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-15 jcarousel-item-15-vertical" jcarouselindex="15">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20285.JPG" rel="lightbox[field_images][sidste post på MTB ruten&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 285.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 285.JPG" alt="sidste post på MTB ruten" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-16 jcarousel-item-16-vertical" jcarouselindex="16">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20287.JPG" rel="lightbox[field_images][Scala Adventure 2010&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 287.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 287.JPG" alt="Scala Adventure 2010" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-17 jcarousel-item-17-vertical" jcarouselindex="17">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20289.JPG" rel="lightbox[field_images][Du skal ud i kajak med bind for øjnene&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 289.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 289.JPG" alt="Du skal ud i kajak med bind for øjnene" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-18 jcarousel-item-18-vertical" jcarouselindex="18">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20290.JPG" rel="lightbox[field_images][Scala Adventure 2010&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 290.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 290.JPG" alt="Scala Adventure 2010" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-19 jcarousel-item-19-vertical" jcarouselindex="19">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20292.JPG" rel="lightbox[field_images][henrik padlede - Duus og jeg råbte&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 292.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 292.JPG" alt="henrik padlede - Duus og jeg råbte" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-20 jcarousel-item-20-vertical" jcarouselindex="20">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20299.JPG" rel="lightbox[field_images][yep han var god&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 299.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 299.JPG" alt="yep han var god" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-21 jcarousel-item-21-vertical" jcarouselindex="21">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20300.JPG" rel="lightbox[field_images][Scala Adventure 2010&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 300.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 300.JPG" alt="Scala Adventure 2010" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-22 jcarousel-item-22-vertical" jcarouselindex="22">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20301.JPG" rel="lightbox[field_images][et rør med fandens mange huller i skulle fyldes med vand&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 301.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 301.JPG" alt="et rør med fandens mange huller i skulle fyldes med vand" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-23 jcarousel-item-23-vertical" jcarouselindex="23">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20302.JPG" rel="lightbox[field_images][vi frøs så vi hoppede&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 302.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 302.JPG" alt="vi frøs så vi hoppede" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-24 jcarousel-item-24-vertical" jcarouselindex="24">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20303.JPG" rel="lightbox[field_images][kun en hånd fra hver og så binde knuder op - Vi frøs så vi hoppede&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 303.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 303.JPG" alt="kun en hånd fra hver og så binde knuder op - Vi frøs så vi hoppede" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-25 jcarousel-item-25-vertical" jcarouselindex="25">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20304.JPG" rel="lightbox[field_images][yep - piece of cake&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 304.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 304.JPG" alt="yep - piece of cake" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-26 jcarousel-item-26-vertical" jcarouselindex="26">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20305.JPG" rel="lightbox[field_images][videre mod mål og sejren&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 305.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 305.JPG" alt="videre mod mål og sejren" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-27 jcarousel-item-27-vertical" jcarouselindex="27">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20307.JPG" rel="lightbox[field_images][doping - vingummi bamser er det hemmelige middel ;o))&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 307.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 307.JPG" alt="doping - vingummi bamser er det hemmelige middel ;o))" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-28 jcarousel-item-28-vertical" jcarouselindex="28">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20308.JPG" rel="lightbox[field_images][Så kan der spurtes&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 308.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 308.JPG" alt="Så kan der spurtes" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-29 jcarousel-item-29-vertical" jcarouselindex="29">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20255.JPG" rel="lightbox[field_images][En sidste hjernevrider&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 255.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 255.JPG" alt="En sidste hjernevrider" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-30 jcarousel-item-30-vertical" jcarouselindex="30">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20256.JPG" rel="lightbox[field_images][Så er det tæt på&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 256.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 256.JPG" alt="Så er det tæt på" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-31 jcarousel-item-31-vertical" jcarouselindex="31">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20257.JPG" rel="lightbox[field_images][yep så mangler vi den sidste opgave&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 257.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 257.JPG" alt="yep så mangler vi den sidste opgave" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-32 jcarousel-item-32-vertical" jcarouselindex="32">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/Michael%20260.JPG" rel="lightbox[field_images][2000 m og så er vi samlet vindere af Scala Adventure 2010 - 30 min til nr 2&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1356&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/Michael 260.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/Michael 260.JPG" alt="2000 m og så er vi samlet vindere af Scala Adventure 2010 - 30 min til nr 2" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-33 jcarousel-item-33-vertical" jcarouselindex="33">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/1.jpg" rel="lightbox[field_images][min store søn holder pause ved susåen sammen med daddy&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1361&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/1.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/1.jpg" alt="min store søn holder pause ved susåen sammen med daddy" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-34 jcarousel-item-34-vertical" jcarouselindex="34">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/2.jpg" rel="lightbox[field_images][så er der pause og hygge ved susåen&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1361&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/2.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/2.jpg" alt="så er der pause og hygge ved susåen" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-35 jcarousel-item-35-vertical" jcarouselindex="35">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/3.jpg" rel="lightbox[field_images][gardasøen&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1361&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/3.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/3.jpg" alt="gardasøen" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-36 jcarousel-item-36-vertical" jcarouselindex="36">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/4.jpg" rel="lightbox[field_images][solnedgand ved gardasøen&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1361&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/4.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/4.jpg" alt="solnedgand ved gardasøen" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-37 jcarousel-item-37-vertical" jcarouselindex="37">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/5_0.jpg" rel="lightbox[field_images][advanced elements kajak&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1361&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/5_0.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/5_0.jpg" alt="advanced elements kajak" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-38 jcarousel-item-38-vertical" jcarouselindex="38">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/6.jpg" rel="lightbox[field_images][advanced elements kajak&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1361&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/6.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/6.jpg" alt="advanced elements kajak" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-39 jcarousel-item-39-vertical" jcarouselindex="39">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/7.jpg" rel="lightbox[field_images][advanced elements kajak&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1361&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/7.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/7.jpg" alt="advanced elements kajak" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-40 jcarousel-item-40-vertical" jcarouselindex="40">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/8.jpg" rel="lightbox[field_images][advanced elements kajak&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1361&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/8.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/8.jpg" alt="advanced elements kajak" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-41 jcarousel-item-41-vertical" jcarouselindex="41">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/9_0.jpg" rel="lightbox[field_images][Martin og daddy på flod i tjekkiet&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1361&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/9_0.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/9_0.jpg" alt="Martin og daddy på flod i tjekkiet" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-42 jcarousel-item-42-vertical" jcarouselindex="42">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/10.jpg" rel="lightbox[field_images][advanced elements kajak&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1361&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/10.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/10.jpg" alt="advanced elements kajak" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-43 jcarousel-item-43-vertical" jcarouselindex="43">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/11.jpg" rel="lightbox[field_images][advanced elements kajak&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1361&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/11.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/11.jpg" alt="advanced elements kajak" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-44 jcarousel-item-44-vertical" jcarouselindex="44">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/12.jpg" rel="lightbox[field_images][10 minutter og så er vi helt klar&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1361&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/12.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_images imagecache imagecache-field_images imagecache-lille imagecache-field_images-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/12.jpg" alt="10 minutter og så er vi helt klar" title="" width="160" height="170"></a></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-45 jcarousel-item-45-vertical" jcarouselindex="45">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM4004.JPG" rel="lightbox[field_billedehjh][hjh4&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1270&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM4004.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM4004.JPG" alt="hjh4" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-46 jcarousel-item-46-vertical" jcarouselindex="46">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/ferie%20057.jpg" rel="lightbox[field_billedehjh][hjh1&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1267&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/ferie 057.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/ferie 057.jpg" alt="hjh1" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-47 jcarousel-item-47-vertical" jcarouselindex="47">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/hjh.gif" rel="lightbox[field_billedehjh][hjh2&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1268&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/hjh.gif&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/hjh.gif" alt="hjh2" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-48 jcarousel-item-48-vertical" jcarouselindex="48">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM3505.JPG" rel="lightbox[field_billedehjh][hjh3&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1269&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM3505.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM3505.JPG" alt="hjh3" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-49 jcarousel-item-49-vertical" jcarouselindex="49">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM4107.JPG" rel="lightbox[field_billedehjh][hjh5&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1271&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM4107.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM4107.JPG" alt="hjh5" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-50 jcarousel-item-50-vertical" jcarouselindex="50">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM4181.JPG" rel="lightbox[field_billedehjh][hjh 6&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1272&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM4181.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM4181.JPG" alt="hjh 6" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-51 jcarousel-item-51-vertical" jcarouselindex="51">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM4209.JPG" rel="lightbox[field_billedehjh][hjh7&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1273&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM4209.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM4209.JPG" alt="hjh7" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-52 jcarousel-item-52-vertical" jcarouselindex="52">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM4239.JPG" rel="lightbox[field_billedehjh][hjh8&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1274&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM4239.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM4239.JPG" alt="hjh8" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-53 jcarousel-item-53-vertical" jcarouselindex="53">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM4275.JPG" rel="lightbox[field_billedehjh][hjh 9&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1275&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM4275.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM4275.JPG" alt="hjh 9" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-54 jcarousel-item-54-vertical" jcarouselindex="54">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/m%C3%B8n%20005.JPG" rel="lightbox[field_billedehjh][hjj5&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1276&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/møn 005.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/møn 005.JPG" alt="hjj5" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-55 jcarousel-item-55-vertical" jcarouselindex="55">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/P7130006.jpg" rel="lightbox[field_billedehjh][hjh77&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1277&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/P7130006.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/P7130006.jpg" alt="hjh77" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-56 jcarousel-item-56-vertical" jcarouselindex="56">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/sommerferie2006%20136.jpg" rel="lightbox[field_billedehjh][hjh66&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1278&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/sommerferie2006 136.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/sommerferie2006 136.jpg" alt="hjh66" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-57 jcarousel-item-57-vertical" jcarouselindex="57">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/sommerferie2006%20412.jpg" rel="lightbox[field_billedehjh][hjh 88&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1279&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/sommerferie2006 412.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/sommerferie2006 412.jpg" alt="hjh 88" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-58 jcarousel-item-58-vertical" jcarouselindex="58">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/P7130006_0.jpg" rel="lightbox[field_billedehjh][hjh 55&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1280&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/P7130006_0.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/P7130006_0.jpg" alt="hjh 55" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-59 jcarousel-item-59-vertical" jcarouselindex="59">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM4275_0.JPG" rel="lightbox[field_billedehjh][uu 77&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1281&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM4275_0.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM4275_0.JPG" alt="uu 77" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-60 jcarousel-item-60-vertical" jcarouselindex="60">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/141020038.jpg" rel="lightbox[field_billedehjh][hjh f&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1282&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/141020038.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/141020038.jpg" alt="hjh f" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-61 jcarousel-item-61-vertical" jcarouselindex="61">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/DSC00154.jpg" rel="lightbox[field_billedehjh][2&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1283&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/DSC00154.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/DSC00154.jpg" alt="2" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-62 jcarousel-item-62-vertical" jcarouselindex="62">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/face3.jpg" rel="lightbox[field_billedehjh][3&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1284&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/face3.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/face3.jpg" alt="3" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-63 jcarousel-item-63-vertical" jcarouselindex="63">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/ferie5%20046.jpg" rel="lightbox[field_billedehjh][4&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1285&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/ferie5 046.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/ferie5 046.jpg" alt="4" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-64 jcarousel-item-64-vertical" jcarouselindex="64">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/ferie%20034.jpg" rel="lightbox[field_billedehjh][5&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1286&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/ferie 034.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/ferie 034.jpg" alt="5" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-65 jcarousel-item-65-vertical" jcarouselindex="65">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/fyn015.jpg" rel="lightbox[field_billedehjh][6&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1287&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/fyn015.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/fyn015.jpg" alt="6" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-66 jcarousel-item-66-vertical" jcarouselindex="66">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM3829.jpg" rel="lightbox[field_billedehjh][7&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1288&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM3829.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM3829.jpg" alt="7" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-67 jcarousel-item-67-vertical" jcarouselindex="67">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM3848.jpg" rel="lightbox[field_billedehjh][8&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1289&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM3848.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM3848.jpg" alt="8" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-68 jcarousel-item-68-vertical" jcarouselindex="68">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM3919.jpg" rel="lightbox[field_billedehjh][9&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1290&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM3919.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM3919.jpg" alt="9" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-69 jcarousel-item-69-vertical" jcarouselindex="69">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM3946.jpg" rel="lightbox[field_billedehjh][10&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1291&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM3946.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM3946.jpg" alt="10" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-70 jcarousel-item-70-vertical" jcarouselindex="70">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM4039.jpg" rel="lightbox[field_billedehjh][11&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1292&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM4039.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM4039.jpg" alt="11" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-71 jcarousel-item-71-vertical" jcarouselindex="71">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM4137.jpg" rel="lightbox[field_billedehjh][12&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1293&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM4137.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM4137.jpg" alt="12" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-72 jcarousel-item-72-vertical" jcarouselindex="72">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM4258.jpg" rel="lightbox[field_billedehjh][13&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1294&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM4258.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM4258.jpg" alt="13" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-73 jcarousel-item-73-vertical" jcarouselindex="73">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM4270.jpg" rel="lightbox[field_billedehjh][14&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1295&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM4270.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM4270.jpg" alt="14" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-74 jcarousel-item-74-vertical" jcarouselindex="74">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/IMG_0596.jpg" rel="lightbox[field_billedehjh][15&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1296&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/IMG_0596.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/IMG_0596.jpg" alt="15" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-75 jcarousel-item-75-vertical" jcarouselindex="75">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/P7060009.jpg" rel="lightbox[field_billedehjh][16&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1297&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/P7060009.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/P7060009.jpg" alt="16" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-76 jcarousel-item-76-vertical" jcarouselindex="76">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/P7060025.jpg" rel="lightbox[field_billedehjh][17&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1298&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/P7060025.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/P7060025.jpg" alt="17" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-77 jcarousel-item-77-vertical" jcarouselindex="77">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/randi2.jpg" rel="lightbox[field_billedehjh][19&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1299&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/randi2.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/randi2.jpg" alt="19" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-78 jcarousel-item-78-vertical" jcarouselindex="78">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/sommerferie2006%20100.jpg" rel="lightbox[field_billedehjh][20&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1300&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/sommerferie2006 100.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/sommerferie2006 100.jpg" alt="20" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-79 jcarousel-item-79-vertical" jcarouselindex="79">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/sommerferie2006%20136_0.jpg" rel="lightbox[field_billedehjh][21&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1301&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/sommerferie2006 136_0.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/sommerferie2006 136_0.jpg" alt="21" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-80 jcarousel-item-80-vertical" jcarouselindex="80">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/sommerferie2006%20343.jpg" rel="lightbox[field_billedehjh][23&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1302&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/sommerferie2006 343.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/sommerferie2006 343.jpg" alt="23" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-81 jcarousel-item-81-vertical" jcarouselindex="81">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/sommerferie2006%20407.jpg" rel="lightbox[field_billedehjh][24&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1303&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/sommerferie2006 407.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/sommerferie2006 407.jpg" alt="24" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-82 jcarousel-item-82-vertical" jcarouselindex="82">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/sommerferie2006%20461.jpg" rel="lightbox[field_billedehjh][25&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1304&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/sommerferie2006 461.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/sommerferie2006 461.jpg" alt="25" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-83 jcarousel-item-83-vertical" jcarouselindex="83">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/sommerferie2006%20506.jpg" rel="lightbox[field_billedehjh][28&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1305&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/sommerferie2006 506.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/sommerferie2006 506.jpg" alt="28" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-84 jcarousel-item-84-vertical" jcarouselindex="84">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/v%C3%A4tern%202006%20052_0.jpg" rel="lightbox[field_billedehjh][Vätern 2006 &lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1340&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/vätern 2006 052_0.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/vätern 2006 052_0.jpg" alt="Vätern 2006 " title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-85 jcarousel-item-85-vertical" jcarouselindex="85">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/07062008078_0.jpg" rel="lightbox[field_billedehjh][melfar24&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1341&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/07062008078_0.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/07062008078_0.jpg" alt="melfar24" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-86 jcarousel-item-86-vertical" jcarouselindex="86">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/hjhkajak_0_0.jpg" rel="lightbox[field_billedehjh][prøvetur i havkajak&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1342&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/hjhkajak_0_0.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/hjhkajak_0_0.jpg" alt="prøvetur i havkajak" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-87 jcarousel-item-87-vertical" jcarouselindex="87">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/kysseb%C3%A6nken_0.jpg" rel="lightbox[field_billedehjh][Kyssebænken&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1343&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/kyssebænken_0.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/kyssebænken_0.jpg" alt="Kyssebænken" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-88 jcarousel-item-88-vertical" jcarouselindex="88">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/hjh1_0.jpg" rel="lightbox[field_billedehjh][Hjh&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/node/1355&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/hjh1_0.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/hjh1_0.jpg" alt="Hjh" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-89 jcarousel-item-89-vertical" jcarouselindex="89">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/DSC_0001_0.JPG" rel="lightbox[field_billedehjh][DSC 0001&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/content/dsc-0001&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/DSC_0001_0.JPG&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/DSC_0001_0.JPG" alt="DSC 0001" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-90 jcarousel-item-90-vertical" jcarouselindex="90">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM4948-1_0.jpg" rel="lightbox[field_billedehjh][HPIM4948 1&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/content/hpim4948-1&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM4948-1_0.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM4948-1_0.jpg" alt="HPIM4948 1" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-91 jcarousel-item-91-vertical" jcarouselindex="91">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"><a href="http://www.skovholm.com/sites/default/files/imagecache/stor/HPIM4962-1_0.jpg" rel="lightbox[field_billedehjh][drengene og deres far&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/content/hpim4962-1&quot; id=&quot;lightbox2-node-link-text&quot;&gt;View Image Details&lt;/a&gt; - &lt;a href=&quot;http://www.skovholm.com/sites/default/files/HPIM4962-1_0.jpg&quot; target=&quot;_blank&quot; id=&quot;lightbox2-download-link-text&quot;&gt;Download Original&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-lille imagefield-field_billedehjh imagecache imagecache-field_billedehjh imagecache-lille imagecache-field_billedehjh-lille lightbox-processed"><img src="./cwdecoder _ www.skovholm.com_files/HPIM4962-1_0.jpg" alt="drengene og deres far" title="" width="160" height="170"></a></span>
+  </div>
+</li><li class="jcarousel-item jcarousel-item-vertical jcarousel-item-92 jcarousel-item-92-vertical" jcarouselindex="92">  
+  <div class="views-field-field-images-fid">
+                <span class="field-content"></span>
+  </div>
+  
+  <div class="views-field-field-billedehjh-fid">
+                <span class="field-content"></span>
+  </div>
+</li></ul></div></div></div>    </div>
+            </div>   </div>
+</div>
+<!-- /block.tpl.php --><div id="block-block-2" class="block block-block block-odd region-odd clearfix ">
+    <div class="content">
+     <!-- Facebook Badge START --><!-- Facebook Badge START --><p></p><p><a style="FONT-VARIANT: normal; FONT-STYLE: normal; FONT-FAMILY: &#39;lucida grande&#39;,tahoma,verdana,arial,sans-serif; COLOR: #3b5998; FONT-SIZE: 11px; FONT-WEIGHT: normal; TEXT-DECORATION: none" title="Hjalmar Skovholm Hansen" href="http://da-dk.facebook.com/people/Hjalmar-Skovholm-Hansen/1380554593" target="_TOP">Hjalmar Skovholm Hansen</a><br><a title="Hjalmar Skovholm Hansen" href="http://da-dk.facebook.com/people/Hjalmar-Skovholm-Hansen/1380554593" target="_TOP"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="" src="./cwdecoder _ www.skovholm.com_files/1380554593.1281.859540354.png" width="160" height="191"></a><br><a style="FONT-VARIANT: normal; FONT-STYLE: normal; FONT-FAMILY: &#39;lucida grande&#39;,tahoma,verdana,arial,sans-serif; COLOR: #3b5998; FONT-SIZE: 11px; FONT-WEIGHT: normal; TEXT-DECORATION: none" title="Lav dit eget badge!" href="http://da-dk.facebook.com/facebook-widgets/" target="_TOP">Opret dit badge</a></p>
+<!-- Facebook Badge END --><!-- Facebook Badge END --><p></p><p></p>
+   </div>
+</div>
+<!-- /block.tpl.php -->          </div>
+        </div>
+      <!-- END SIDEBAR RIGHT -->
+          </div>
+    <!-- END CONTAINER -->
+    <div class="push">&nbsp;</div>
+  </div>
+  <!-- END WRAPPER -->
+  <div id="footer" class="layout-region">
+    <div id="footer-inner">
+            vil du i kontakt så kontakt mig på hjh@skovholm.com    </div>
+  </div>
+  <script type="text/javascript" src="./cwdecoder _ www.skovholm.com_files/onepixelout.js.download"></script>
+  
+<div id="lightbox2-overlay" style="display: none;"></div>      <div id="lightbox" style="display: none;" class="lightbox2-orig-layout">        <div id="outerImageContainer" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);"><div id="modalContainer" style="display: none; padding: 10px;"></div><div id="frameContainer" style="display: none; padding: 10px;"></div><div id="imageContainer" style="display: none; padding: 10px;"><img id="lightboxImage" alt=""><div id="hoverNav"><a id="prevLink" title="Previous" href="http://www.skovholm.com/cwdecoder#" class="force_show_nav" style="padding-top: 10px;"></a><a id="nextLink" title="Next" href="http://www.skovholm.com/cwdecoder#" class="force_show_nav" style="padding-top: 10px;"></a></div></div><div id="loading"><a href="http://www.skovholm.com/cwdecoder#" id="loadingLink"></a></div></div>        <div id="imageDataContainer" class="clearfix" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">          <div id="imageData"><div id="imageDetails"><span id="caption"></span><span id="numberDisplay"></span></div><div id="bottomNav"><div id="frameHoverNav"><a id="framePrevLink" title="Previous" href="http://www.skovholm.com/cwdecoder#" style="padding-top: 10px;"></a><a id="frameNextLink" title="Next" href="http://www.skovholm.com/cwdecoder#" style="padding-top: 10px;"></a></div><a id="bottomNavClose" title="Luk" href="http://www.skovholm.com/cwdecoder#" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);"></a><a id="bottomNavZoom" href="http://www.skovholm.com/cwdecoder#"></a><a id="bottomNavZoomOut" href="http://www.skovholm.com/cwdecoder#"></a><a id="lightshowPause" title="Pause Slideshow" href="http://www.skovholm.com/cwdecoder#" style="display: none;"></a><a id="lightshowPlay" title="Play Slideshow" href="http://www.skovholm.com/cwdecoder#" style="display: none;"></a></div></div>        </div>      </div></body></html>
