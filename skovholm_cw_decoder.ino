@@ -154,6 +154,13 @@ void setup() {
  delay(1500);
  lcd.clear(); 
  
+ Serial.print("\r\n");
+ Serial.println(CALLSIGN);
+ Serial.println(WELCOME);
+ Serial.print(VERSION);
+ Serial.println(VERSION_FIRMWARE);
+ Serial.println("----------------------------------\n");
+ 
  for (int index = 0; index < colums; index++){
     line1[index] = 32;
   line2[index] = 32;
