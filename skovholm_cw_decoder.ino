@@ -429,7 +429,7 @@ void updateinfolinelcd(){
 // here we update the upper line   //
 // with the speed.                 //
 /////////////////////////////////////
-
+  String txt_tmp;
   int place;
   if (rows == 4){
    place = colums/2;}
@@ -442,16 +442,15 @@ void updateinfolinelcd(){
     lcd.setCursor((place)-1,0);
     lcd.print(wpm);
     lcd.setCursor((place),0);
-    lcd.print(" ");
-    lcd.print(WPM);
+    txt_tmp = " " + (String)WPM;
+    lcd.print(txt_tmp);
   }
   else{
     lcd.setCursor((place)-2,0);
     lcd.print(wpm);
-    lcd.setCursor((place),0);
-    lcd.print(" ");
-    lcd.print(WPM);
-    lcd.print(" ");
+    lcd.setCursor((place),0); 
+    txt_tmp = " " + (String)WPM + " ";
+    lcd.print(txt_tmp);
   }
 
 }
