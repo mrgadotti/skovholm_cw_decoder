@@ -11,7 +11,13 @@
 // if you want to know about FFT the http://www.dspguide.com/pdfbook.htm //
 ///////////////////////////////////////////////////////////////////////////
 
-// http://www.skovholm.com/cwdecoder
+/* http://www.skovholm.com/cwdecoder */
+
+#define VERSION_FIRMWARE "1.0.0-PT_BR"
+#define VERSION "Versao: "
+#define CALLSIGN "PP5MGT"
+#define WPM "PPM"
+#define WELCOME "Decodificador de CW"
 
 #include <LiquidCrystal.h>
 
@@ -135,7 +141,19 @@ void setup() {
 
  Serial.begin(115200); 
  pinMode(ledPin, OUTPUT);
+ 
  lcd.begin(colums, rows); 
+ // Welcome message
+ lcd.setCursor(7,0);
+ lcd.write(CALLSIGN);
+ lcd.setCursor(0,1);
+ lcd.write(WELCOME);
+ lcd.setCursor(0,2);
+ lcd.write(VERSION);
+ lcd.write(VERSION_FIRMWARE);
+ delay(1500);
+ lcd.clear(); 
+ 
  for (int index = 0; index < colums; index++){
     line1[index] = 32;
   line2[index] = 32;
@@ -417,13 +435,16 @@ void updateinfolinelcd(){
     lcd.setCursor((place)-1,0);
     lcd.print(wpm);
     lcd.setCursor((place),0);
-    lcd.print(" WPM");
+    lcd.print(" ");
+    lcd.print(WPM);
   }
   else{
     lcd.setCursor((place)-2,0);
     lcd.print(wpm);
     lcd.setCursor((place),0);
-    lcd.print(" WPM ");
+    lcd.print(" ");
+    lcd.print(WPM);
+    lcd.print(" ");
   }
 
 }
